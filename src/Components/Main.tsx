@@ -1,5 +1,5 @@
 import React, {} from "react";
-import s from './Main.module.sass'
+import s from '../Styles/Main.module.sass'
 import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
