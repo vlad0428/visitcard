@@ -7,10 +7,10 @@ import {Main} from "./Components/Main";
 function App() {
     return (
         <div>
-            <Main/>
-            {/*<Header/>*/}
-            {/*<MainPage/>*/}
-            {/*<Footer/>*/}
+            {/*<Main/>*/}
+            <Header/>
+            <MainPage/>
+            <Footer/>
         </div>
     );
 }
