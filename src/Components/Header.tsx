@@ -6,7 +6,6 @@ export function Header() {
     return (
         <header className={s.header}>
             <div className={s.with}>
-                <div className={s.headerDiv}>Header</div>
                 <nav className={s.navBar}>
                     <ul className={s.ul}>
                         <a href="#" className={s.link}>
