@@ -2,7 +2,6 @@ import './style.css'
 import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-
 // const GLTFLoader = new GLTFLoader()
 
 
@@ -14,11 +13,24 @@ const scene = new THREE.Scene()
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
+
+
 const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('.webgl')
 })
 
 
+renderer.setPixelRatio(window.devicePixelRatio)
+renderer.setSize(window.innerWidth, window.innerHeight)
+camera.position.setZ(30)
+camera.position.setX(-3);
+
+renderer.render(scene, camera)
+
+
+
+
+let donutGltf
 
 const gltfLoader = new GLTFLoader()
 console.log(gltfLoader)
@@ -26,7 +38,9 @@ gltfLoader.load(
     'Obj/Donut/glTF/scene.gltf',
     (gltf) => {
         console.log('success')
-        gltf.scene.scale.set(0.225,0.225,0.225)
+        donutGltf = gltf
+        gltf.scene.scale.set(0.125,0.125,0.125)
+        gltf.scene.rotation.x = 0.8
         scene.add(gltf.scene)
     },
     () => {
@@ -38,29 +52,51 @@ gltfLoader.load(
 )
 
 
-renderer.setPixelRatio(window.devicePixelRatio)
-renderer.setSize(window.innerWidth, window.innerHeight)
-camera.position.setZ(30)
-
-renderer.render(scene, camera)
-
 
 //Textures
 
-const manager = new THREE.LoadingManager();
-const texture = new THREE.TextureLoader(manager).load( 'https://res.cloudinary.com/dydre7amr/image/upload/v1614177581/donutCool_vsn6dj.jpg');
-texture.encoding = THREE.sRGBEncoding;
-texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-texture.repeat.set( 3, 1 );
-console.log(texture)
+const spaceTexture = new THREE.TextureLoader().load( 'space.jpg');
+scene.background = spaceTexture
 
+// const environmentMapTexture = new THREE.CubeTextureLoader().load([
+//     '/textures/environmentMaps/0/px.jpg',
+//     '/textures/environmentMaps/0/nx.jpg',
+//     '/textures/environmentMaps/0/py.jpg',
+//     '/textures/environmentMaps/0/nx.jpg',
+//     '/textures/environmentMaps/0/pz.jpg',
+//     '/textures/environmentMaps/0/nz.jpg',
+// ])
 
-//Obj
-const geometry = new THREE.TorusGeometry(10,3,16,100)
-const material = new THREE.MeshBasicMaterial({map: texture, wireframe: false})
-const torus = new THREE.Mesh(geometry,material)
-// scene.add(torus)
+//Оптимизировать объект!!
 
+const meTexture = new THREE.TextureLoader().load('someRichMan.png')
+
+const me = new THREE.Mesh(
+    new THREE.BoxGeometry(3,3,3),
+    new THREE.MeshBasicMaterial({map: meTexture})
+)
+
+scene.add(me)
+
+//Scroll
+camera.position.z = 10
+
+function moveCamera() {
+    const t = document.body.getBoundingClientRect().top;
+    me.rotation.x += 0.05;
+    me.rotation.y += 0.075;
+    me.rotation.z += 0.05;
+    //
+    // me.rotation.y += 0.01;
+    // me.rotation.z += 0.01;
+    //
+    camera.position.z++
+    camera.position.x = t * 0.0002;
+    camera.rotation.y = t * -0.0002;
+}
+
+document.body.onscroll = moveCamera;
+moveCamera();
 
 const pointLight = new THREE. PointLight(0xffffff)
 pointLight.position.set(20,20,20)
@@ -82,11 +118,17 @@ function addStar(){
 }
 Array(200).fill().forEach(addStar)
 
+// const spaceTexture = new THREE.TextureLoader().load('space.jpg')
+// scene.background = spaceTexture
+
 function animate() {
     requestAnimationFrame(animate)
-    // gltf.scene.rotation.x += 0.01
-    // gltf.scene.rotation.y += 0.007
-    // gltf.scene.rotation.z += 0.01
+    if (donutGltf){
+        // donutGltf.scene.rotation.x += 0.01 * Math.cos(0.3)
+        donutGltf.scene.rotation.y += 0.01 * -Math.cos(0.2)
+        // donutGltf.scene.rotation.z += 0.01 * -Math.cos(0.2)
+        // donutGltf.scene.rotation.z += 0.01
+    }
     renderer.render(scene, camera)
 }
 animate()
