@@ -2,8 +2,12 @@ import './style.css'
 import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import * as dat from 'dat.gui'
 // const GLTFLoader = new GLTFLoader()
 
+//Helper
+
+const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -27,9 +31,7 @@ camera.position.setX(-3);
 
 renderer.render(scene, camera)
 
-
-
-
+//Donut
 let donutGltf
 
 const gltfLoader = new GLTFLoader()
@@ -39,8 +41,18 @@ gltfLoader.load(
     (gltf) => {
         console.log('success')
         donutGltf = gltf
+
         gltf.scene.scale.set(0.125,0.125,0.125)
-        gltf.scene.rotation.x = 0.8
+        // gltf.scene.rotation.x = 0.78
+        gltf.scene.rotation.x = 0.54
+        gltf.scene.rotation.z = 0.26
+        gltf.scene.position.z = -5;
+        gltf.scene.position.x = 2;
+        gui.add(gltf.scene.rotation,'z').min(-10).max(5).step(0.01).name('donut - z rotation')
+        gui.add(gltf.scene.rotation,'x').min(-10).max(5).step(0.01).name('donut - x rotation')
+        gui.add(gltf.scene.rotation,'y').min(-5).max(10).step(0.01).name('donut - y rotation')
+
+
         scene.add(gltf.scene)
     },
     () => {
@@ -50,11 +62,8 @@ gltfLoader.load(
         console.log('error')
     }
 )
-
-
-
 //Textures
-
+const meTexture = new THREE.TextureLoader().load('someRichMan.png')
 const spaceTexture = new THREE.TextureLoader().load( 'space.jpg');
 scene.background = spaceTexture
 
@@ -69,43 +78,6 @@ scene.background = spaceTexture
 
 //Оптимизировать объект!!
 
-const meTexture = new THREE.TextureLoader().load('someRichMan.png')
-
-const me = new THREE.Mesh(
-    new THREE.BoxGeometry(3,3,3),
-    new THREE.MeshBasicMaterial({map: meTexture})
-)
-
-scene.add(me)
-
-//Scroll
-camera.position.z = 10
-
-function moveCamera() {
-    const t = document.body.getBoundingClientRect().top;
-    me.rotation.x += 0.05;
-    me.rotation.y += 0.075;
-    me.rotation.z += 0.05;
-    //
-    // me.rotation.y += 0.01;
-    // me.rotation.z += 0.01;
-    //
-    camera.position.z++
-    camera.position.x = t * 0.0002;
-    camera.rotation.y = t * -0.0002;
-}
-
-document.body.onscroll = moveCamera;
-moveCamera();
-
-const pointLight = new THREE. PointLight(0xffffff)
-pointLight.position.set(20,20,20)
-
-const ambientLight = new THREE.AmbientLight(0xffffff)
-scene.add(pointLight, ambientLight)
-
-const controls = new OrbitControls(camera, renderer.domElement)
-
 //Starts
 function addStar(){
     const geometry = new THREE.SphereGeometry(0.25, 24, 24)
@@ -118,17 +90,68 @@ function addStar(){
 }
 Array(200).fill().forEach(addStar)
 
-// const spaceTexture = new THREE.TextureLoader().load('space.jpg')
-// scene.background = spaceTexture
+//ME
+const me = new THREE.Mesh(
+    new THREE.BoxBufferGeometry(3,3,3),
+    new THREE.MeshBasicMaterial({map: meTexture})
+)
+
+scene.add(me)
+
+me.position.z = -5;
+me.position.x = 2;
+
+//Scroll
+// camera.position.z = 10
+
+gui.add(camera.position,'z').min(-100).max(100).step(1).name('z position')
+//Dont forget about loading screen!!!
+
+console.log(camera.position.z)
+
+function moveCamera() {
+    const t = document.body.getBoundingClientRect().top;
+    me.rotation.x += 0.05;
+    me.rotation.y += 0.075;
+    me.rotation.z += 0.05;
+    //
+    // me.rotation.y += 0.01;
+    // me.rotation.z += 0.01;
+    //
+    camera.position.z = t * -0.01;
+    camera.position.x = t * -0.0002;
+    camera.rotation.y = t * -0.0002;
+    console.log(camera.position.z)
+}
+
+document.body.onscroll = moveCamera;
+moveCamera();
 
 function animate() {
     requestAnimationFrame(animate)
     if (donutGltf){
         // donutGltf.scene.rotation.x += 0.01 * Math.cos(0.3)
+
+
         donutGltf.scene.rotation.y += 0.01 * -Math.cos(0.2)
+
+
         // donutGltf.scene.rotation.z += 0.01 * -Math.cos(0.2)
         // donutGltf.scene.rotation.z += 0.01
     }
     renderer.render(scene, camera)
 }
 animate()
+
+const pointLight = new THREE. PointLight(0xffffff)
+pointLight.position.set(20,20,20)
+
+const ambientLight = new THREE.AmbientLight(0xffffff)
+scene.add(pointLight, ambientLight)
+
+
+
+
+// const spaceTexture = new THREE.TextureLoader().load('space.jpg')
+// scene.background = spaceTexture
+
