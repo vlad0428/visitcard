@@ -46,11 +46,11 @@ blockquote p
 .section
     position: relative
     width: 100%
-    overflow: hidden
     height: 100vh
+    overflow: hidden
     background: #111
 
-.paralax
+.text
     position: relative
     transform: skewY(345deg) translateY(-200px)
     animation: animateColor 5s linear infinite
@@ -61,27 +61,70 @@ blockquote p
     100%
         filter: hue-rotate(360deg)
 
-.paralax h2
+.text h2
     position: relative
     width: 100%
     font-size: 8em
     color: #fff
     pointer-events: none
     line-height: 1em
-    white-space: nowrap
-    //text-shadow: calc(calc(0% - var(--x) * 2)))
-    //transform: translateX(calc(0% - var(--x) * 2))
+    //white-space: nowrap
+    text-shadow: calc(var(--x)) 100px 0 rgba(255,255,255,0.1)
+    transform: translateX(calc(0% - var(--x) * 2))
 
+//
+.text h2 span
+    color: #0f0
+    margin: 0 10px
 
-.paralax h2 span
-    position: relative
-    transform: skewY(345deg) translateY(-200px)
-    font-size: 8em
-
-.paralax h2 span:nth-child(even)
+//
+.text h2 span:nth-child(even)
     color: transparent
     -webkit-text-stroke: 2px #fff
+/////////////////////////////////
+
+.section2
+    position: absolute
+    width: 100%
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    background: linear-gradient(to bottom, #ff4f8b, #dff1ff)
+
+.section2::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 50%
+    backdrop-filter: blur(5px)
+    bottom: 0
+    z-index: 1
+    border-top: 1px solid rgba(255,255,255,0.5)
 
 
+section2  .color
+    filter: blur(150px)
+    position: absolute
+
+.section2 .color:nth-child(1)
+    background: #ff359b
+    width: 600px
+    height: 600px
+    top: -350px
+
+.section2 .color:nth-child(2)
+    background: #00d2ff
+    width: 500px
+    height: 500px
+    top: -350px
+    bottom: -150px
+    left: 100px
 
 
+.section2 .color:nth-child(3)
+    background: #fffd87
+    width: 300px
+    height: 300px
+    bottom: 50px
+    right: 0
