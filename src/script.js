@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import * as dat from 'dat.gui'
+import {Triangle} from "three";
 // const GLTFLoader = new GLTFLoader()
 
 //Helper
@@ -24,6 +25,9 @@ const renderer = new THREE.WebGLRenderer({
 })
 
 
+//Orbit control
+const controls = new OrbitControls( camera, renderer.domElement );
+
 renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth, window.innerHeight)
 camera.position.setZ(30)
@@ -32,19 +36,32 @@ camera.position.setX(-3);
 renderer.render(scene, camera)
 
 
-//Mesh triangle
-// const materialTriangle
+// *
+//Meshes
+// *
 
-const materialTriangle = new THREE.MeshBasicMaterial({color: 0xff00ff})
-let v1 = new THREE.Vector3(0,0,0);
-let v2 = new THREE.Vector3(30,0,0);
-let v3 = new THREE.Vector3(30,30,0);
-const triangle = new THREE.Mesh(
-    new THREE.BoxBufferGeometry(2,2,2),
-    materialTriangle
-)
-scene.add(triangle)
+//TRIANGLE
+const radius =  4;
+const height = 5;
+const radialSegments =  3;
+const geometry1 = new THREE.ConeGeometry(radius, height, radialSegments);
 
+let triangleMesh= new THREE.Mesh( geometry1, new THREE.MeshNormalMaterial() );
+triangleMesh.position.z = 23
+triangleMesh.position.x = -6
+scene.add(triangleMesh)
+
+//DODECAHEDRON
+const radius2 =  1;
+const geometry2 = new THREE.DodecahedronGeometry(radius2);
+const material2 =  new THREE.MeshNormalMaterial({
+    transparent: true,
+    opacity: 0.65
+})
+const dodecahedronMesh = new THREE.Mesh(geometry2,material2)
+dodecahedronMesh.position.z = 27
+dodecahedronMesh.position.x = -6
+scene.add(dodecahedronMesh)
 
 //Donut
 let donutGltf
@@ -82,15 +99,6 @@ const meTexture = new THREE.TextureLoader().load('someRichMan.png')
 const spaceTexture = new THREE.TextureLoader().load( 'space.jpg');
 scene.background = spaceTexture
 
-// const environmentMapTexture = new THREE.CubeTextureLoader().load([
-//     '/textures/environmentMaps/0/px.jpg',
-//     '/textures/environmentMaps/0/nx.jpg',
-//     '/textures/environmentMaps/0/py.jpg',
-//     '/textures/environmentMaps/0/nx.jpg',
-//     '/textures/environmentMaps/0/pz.jpg',
-//     '/textures/environmentMaps/0/nz.jpg',
-// ])
-
 //Оптимизировать объект!!
 
 //Starts
@@ -105,7 +113,7 @@ function addStar(){
 }
 Array(200).fill().forEach(addStar)
 
-//ME
+//MESH
 const me = new THREE.Mesh(
     new THREE.BoxBufferGeometry(3,3,3),
     new THREE.MeshBasicMaterial({map: meTexture})
@@ -133,7 +141,7 @@ function moveCamera() {
     // me.rotation.y += 0.01;
     // me.rotation.z += 0.01;
     //
-    camera.position.z = t * -0.01;
+    camera.position.z = t * -0.02;
     camera.position.x = t * -0.0002;
     camera.rotation.y = t * -0.0002;
     console.log(camera.position.z)
@@ -142,6 +150,7 @@ function moveCamera() {
 document.body.onscroll = moveCamera;
 moveCamera();
 
+let t = 0
 function animate() {
     requestAnimationFrame(animate)
     if (donutGltf){
@@ -150,9 +159,10 @@ function animate() {
 
         donutGltf.scene.rotation.y += 0.01 * -Math.cos(0.2)
 
-
-        // donutGltf.scene.rotation.z += 0.01 * -Math.cos(0.2)
-        // donutGltf.scene.rotation.z += 0.01
+        // dodecahedronMesh.position.z += Math.sin(0.02) * 2
+        t += 0.01
+        dodecahedronMesh.position.z = 4 * Math.sin(t) + 24
+        dodecahedronMesh.position.x = 4 * Math.cos(t) + -6
     }
     renderer.render(scene, camera)
 }
