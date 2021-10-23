@@ -160,4 +160,25 @@ blockquote h2 {
   transform: skewX(45deg) translateX(-150px);
 }
 
+.imgMetal {
+  width: 400px;
+}
+
+.blockquote-first {
+  margin-bottom: 220px;
+}
+
+.img-metal-wrap {
+  display: flex;
+}
+
+.a-metal-img {
+  display: block;
+  transition: 0.4s;
+}
+.a-metal-img:hover {
+  transition: 0.4s;
+  margin-top: -20px;
+}
+
 /*# sourceMappingURL=style.css.map */

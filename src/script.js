@@ -50,6 +50,8 @@ let triangleMesh= new THREE.Mesh( geometry1, new THREE.MeshNormalMaterial() );
 triangleMesh.position.z = 23
 triangleMesh.position.x = -6
 scene.add(triangleMesh)
+gui.add(triangleMesh.rotation,'y').min(-10).max(5).step(0.01).name('triangleMesh - y rotation')
+
 
 //DODECAHEDRON
 const radius2 =  1;
@@ -59,9 +61,16 @@ const material2 =  new THREE.MeshNormalMaterial({
     opacity: 0.65
 })
 const dodecahedronMesh = new THREE.Mesh(geometry2,material2)
+// const dodecahedronMesh2 = new THREE.Mesh(geometry2,material2)
 dodecahedronMesh.position.z = 27
 dodecahedronMesh.position.x = -6
+
+// dodecahedronMesh2.position.z = 21
+// dodecahedronMesh2.position.x = -9
 scene.add(dodecahedronMesh)
+// gui.add(dodecahedronMesh2.position,'z').min(15).max(30).step(1).name('dodecahedronMesh2 - z position')
+// gui.add(dodecahedronMesh2.position,'x').min(-15).max(15).step(1).name('dodecahedronMesh2 - x position')
+
 
 //Donut
 let donutGltf
@@ -137,14 +146,26 @@ function moveCamera() {
     me.rotation.x += 0.05;
     me.rotation.y += 0.075;
     me.rotation.z += 0.05;
-    //
-    // me.rotation.y += 0.01;
-    // me.rotation.z += 0.01;
-    //
-    camera.position.z = t * -0.02;
-    camera.position.x = t * -0.0002;
-    camera.rotation.y = t * -0.0002;
-    console.log(camera.position.z)
+
+    triangleMesh.rotation.y = t * -0.005;
+
+    // if(camera.position.z < 30){
+    //     camera.position.z = t * -0.02;
+    //     camera.position.x = t * -0.0002;
+    //     camera.rotation.y = t * -0.0002;
+    // }
+    if (window.pageYOffset > 1450){
+        // camera.position.z = (t * -0.02) / 10;
+        // camera.position.x = (t * -0.0002) / 10;
+        // camera.rotation.y =( t * -0.0002) / 10;
+    }
+    else{
+        camera.position.z = t * -0.02;
+        camera.position.x = t * -0.0002;
+        camera.rotation.y = t * -0.0002;
+    }
+
+    console.log(  window.pageYOffset)
 }
 
 document.body.onscroll = moveCamera;
@@ -161,8 +182,12 @@ function animate() {
 
         // dodecahedronMesh.position.z += Math.sin(0.02) * 2
         t += 0.01
+        // #1
         dodecahedronMesh.position.z = 4 * Math.sin(t) + 24
         dodecahedronMesh.position.x = 4 * Math.cos(t) + -6
+
+        dodecahedronMesh.rotation.y += 0.01 * -Math.cos(0.2)
+        dodecahedronMesh.rotation.z += 0.01 * -Math.cos(0.2)
     }
     renderer.render(scene, camera)
 }
