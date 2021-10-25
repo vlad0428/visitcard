@@ -8,7 +8,7 @@ import {Triangle} from "three";
 
 //Helper
 
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -50,7 +50,7 @@ let triangleMesh= new THREE.Mesh( geometry1, new THREE.MeshNormalMaterial() );
 triangleMesh.position.z = 23
 triangleMesh.position.x = -6
 scene.add(triangleMesh)
-gui.add(triangleMesh.rotation,'y').min(-10).max(5).step(0.01).name('triangleMesh - y rotation')
+// gui.add(triangleMesh.rotation,'y').min(-10).max(5).step(0.01).name('triangleMesh - y rotation')
 
 
 //DODECAHEDRON
@@ -89,9 +89,9 @@ gltfLoader.load(
         gltf.scene.rotation.z = 0.26
         gltf.scene.position.z = -5;
         gltf.scene.position.x = 2;
-        gui.add(gltf.scene.rotation,'z').min(-10).max(5).step(0.01).name('donut - z rotation')
-        gui.add(gltf.scene.rotation,'x').min(-10).max(5).step(0.01).name('donut - x rotation')
-        gui.add(gltf.scene.rotation,'y').min(-5).max(10).step(0.01).name('donut - y rotation')
+        // gui.add(gltf.scene.rotation,'z').min(-10).max(5).step(0.01).name('donut - z rotation')
+        // gui.add(gltf.scene.rotation,'x').min(-10).max(5).step(0.01).name('donut - x rotation')
+        // gui.add(gltf.scene.rotation,'y').min(-5).max(10).step(0.01).name('donut - y rotation')
 
 
         scene.add(gltf.scene)
@@ -133,10 +133,7 @@ scene.add(me)
 me.position.z = -5;
 me.position.x = 2;
 
-//Scroll
-// camera.position.z = 10
-
-gui.add(camera.position,'z').min(-100).max(100).step(1).name('z position')
+// gui.add(camera.position,'z').min(-100).max(100).step(1).name('z position')
 //Dont forget about loading screen!!!
 
 console.log(camera.position.z)
@@ -149,15 +146,7 @@ function moveCamera() {
 
     triangleMesh.rotation.y = t * -0.005;
 
-    // if(camera.position.z < 30){
-    //     camera.position.z = t * -0.02;
-    //     camera.position.x = t * -0.0002;
-    //     camera.rotation.y = t * -0.0002;
-    // }
     if (window.pageYOffset > 1450){
-        // camera.position.z = (t * -0.02) / 10;
-        // camera.position.x = (t * -0.0002) / 10;
-        // camera.rotation.y =( t * -0.0002) / 10;
     }
     else{
         camera.position.z = t * -0.02;
@@ -165,7 +154,6 @@ function moveCamera() {
         camera.rotation.y = t * -0.0002;
     }
 
-    console.log(  window.pageYOffset)
 }
 
 document.body.onscroll = moveCamera;
@@ -175,12 +163,9 @@ let t = 0
 function animate() {
     requestAnimationFrame(animate)
     if (donutGltf){
-        // donutGltf.scene.rotation.x += 0.01 * Math.cos(0.3)
-
 
         donutGltf.scene.rotation.y += 0.01 * -Math.cos(0.2)
 
-        // dodecahedronMesh.position.z += Math.sin(0.02) * 2
         t += 0.01
         // #1
         dodecahedronMesh.position.z = 4 * Math.sin(t) + 24

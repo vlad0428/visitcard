@@ -30,6 +30,7 @@ header
     padding: 2rem
     margin-bottom: 50px
     width: 800px
+    position: relative
 
 section
     width: 100%
@@ -50,9 +51,12 @@ blockquote h2
 .section-right
     width: 500px
     margin-left: auto
+    margin-right: 10px
+    position: relative
 
 .section-left
-    width: 800px
+    width: 1200px
+    position: relative
 
 ///////////////////////////////////////
 .section
@@ -154,10 +158,40 @@ blockquote h2
 
 .img-metal-wrap
     display: flex
+    flex-wrap: wrap
 
 .a-metal-img
     display: block
     transition: 0.4s
+    z-index: 100
     &:hover
         transition: 0.4s
         margin-top: -20px
+
+.thanksWatching
+    color: black
+    font-size: 4rem
+    margin: 150px 0 100px 0
+
+.cond
+    transform: rotate(-20deg)
+    margin-left: 50px
+
+.img-stravinsky
+    position: absolute
+    right: -179px
+    bottom: -137px
+
+.bestway-img
+    position: absolute
+    right: 207px
+    bottom: -400px
+
+.welcome-site
+    font-family: sans-serif
+    font-size: 12px
+    color: #ba0000
+    position: absolute
+    bottom: 5px
+    right: 7px
+//don't forgot to write not adaptive yet on load screen
