@@ -4,11 +4,8 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import * as dat from 'dat.gui'
 import {Triangle} from "three";
+import {gsap} from "gsap";
 // const GLTFLoader = new GLTFLoader()
-
-//Helper
-
-// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -74,12 +71,21 @@ scene.add(dodecahedronMesh)
 
 //Donut
 let donutGltf
-
+const loadingBarElement = document.querySelector('.loading-bar')
 const gltfLoader = new GLTFLoader()
 console.log(gltfLoader)
 gltfLoader.load(
     'Obj/Donut/glTF/scene.gltf',
     (gltf) => {
+        window.setTimeout(() =>
+        {
+            // Animate overlay
+            gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0, delay: 1 })
+
+            // Update loadingBarElement
+            loadingBarElement.classList.add('ended')
+            loadingBarElement.style.transform = ''
+        }, 500)
         console.log('success')
         donutGltf = gltf
 
@@ -108,7 +114,31 @@ const meTexture = new THREE.TextureLoader().load('someRichMan.png')
 const spaceTexture = new THREE.TextureLoader().load( 'space.jpg');
 scene.background = spaceTexture
 
-//Оптимизировать объект!!
+const overlayGeometry = new THREE.PlaneBufferGeometry(2, 2, 1, 1)
+const overlayMaterial = new THREE.ShaderMaterial({
+    // wireframe: true,
+    transparent: true,
+    uniforms:
+        {
+            uAlpha: { value: 1 }
+        },
+    vertexShader: `
+        void main()
+        {
+            gl_Position = vec4(position, 1.0);
+        }
+    `,
+    fragmentShader: `
+        uniform float uAlpha;
+
+        void main()
+        {
+            gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
+        }
+    `
+})
+const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
+scene.add(overlay)
 
 //Starts
 function addStar(){
