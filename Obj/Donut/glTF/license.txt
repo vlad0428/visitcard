@@ -1,0 +1,11 @@
+Model Information:
+* title:	donut
+* source:	https://sketchfab.com/3d-models/donut-c8b1c010e17747db9281398cb95562d1
+* author:	stasbelyk13 (https://sketchfab.com/stasbelyk13)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "donut" (https://sketchfab.com/3d-models/donut-c8b1c010e17747db9281398cb95562d1) by stasbelyk13 (https://sketchfab.com/stasbelyk13) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
