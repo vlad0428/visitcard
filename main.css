@@ -1,5 +1,9 @@
 @import url(https://use.typekit.net/jmk3xov.css);
 @import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap);
+body {
+  overflow-x: hidden;
+}
+
 canvas {
   position: fixed;
   top: 0;
@@ -255,6 +259,7 @@ blockquote h2 {
   transform-origin: top left;
   transition: transform 0.5s;
   z-index: 100001;
+  overflow: hidden;
 }
 
 .loading-bar.ended {
@@ -262,6 +267,7 @@ blockquote h2 {
   transform-origin: 100% 0;
   transition: transform 1.5s ease-in-out;
   z-index: 100000;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */
