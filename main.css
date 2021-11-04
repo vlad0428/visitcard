@@ -22,7 +22,12 @@ main {
   padding: 120px 0 0;
   overflow: hidden;
 }
-
+@media (max-width: 1199.99px) {
+  main {
+    padding: 40px;
+    width: 100%;
+  }
+}
 h1, h2, h3, blockquote {
   font-family: elevon, sans-serif;
   font-weight: 700;
@@ -37,7 +42,22 @@ header {
   width: 800px;
   position: relative;
 }
-
+@media (max-width: 1199.99px) {
+  header {
+    font-size: 1.5rem;
+    width: 600px;
+    margin-left: 5.4%;
+  }
+}
+@media (max-width: 991.99px) {
+  header {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    padding-top: 10px;
+  }
+}
 section {
   width: 100%;
   padding: 1rem;
@@ -46,7 +66,13 @@ section {
   line-height: 1.5;
   margin-bottom: 350px;
 }
-
+@media (max-width: 1199.99px) {
+  section {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
 blockquote h2 {
   color: black;
   background: white;
@@ -54,24 +80,69 @@ blockquote h2 {
   margin: 150px 0 100px 0;
   width: 1400px;
 }
-
+@media (max-width: 1199.99px) {
+  blockquote h2 {
+    margin: 120px auto 70px;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 90%;
+    padding: 5px 0;
+  }
+}
+@media (max-width: 991.99px) {
+  blockquote h2 {
+    margin: 70px auto 120px;
+  }
+}
 .section-right {
   width: 500px;
   margin-left: auto;
   margin-right: 10px;
   position: relative;
 }
-
+@media (max-width: 1199.99px) {
+  .section-right {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 991.99px) {
+  .section-right {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
 .section-left {
   width: 1200px;
   position: relative;
 }
-
-.section {
+@media (max-width: 1199.99px) {
+  .section-left {
+    width: 90%;
+    margin: 50px auto;
+  }
+}
+@media (max-width: 1199.99px) {
+  .section-left h2 {
+    text-align: center;
+    padding: 25px 35px 0;
+  }
+}
+@media (max-width: 1199.99px) {
+  .zIndexMetall {
+    z-index: 10;
+  }
+}
+.sectionText {
   position: relative;
   width: 100%;
   height: 700px;
   margin-top: -250px;
+}
+@media (max-width: 575.99px) {
+  .sectionText {
+    margin-top: -200px;
+  }
 }
 
 .text {
@@ -98,6 +169,21 @@ blockquote h2 {
   line-height: 1em;
   text-shadow: calc(var(--x)) 100px 0 rgba(255, 255, 255, 0.1);
   transform: translateX(calc(0% - var(--x) * 2));
+}
+@media (max-width: 991.99px) {
+  .text h2 {
+    font-size: 5em;
+  }
+}
+@media (max-width: 767.99px) {
+  .text h2 {
+    font-size: 4em;
+  }
+}
+@media (max-width: 575.99px) {
+  .text h2 {
+    font-size: 2.5em;
+  }
 }
 
 .text h2 span {
@@ -171,16 +257,34 @@ blockquote h2 {
 .imgMetal {
   width: 400px;
 }
-
+@media (max-width: 1199.99px) {
+  .imgMetal {
+    width: 250px;
+  }
+}
 .blockquote-first {
   margin-bottom: 220px;
+}
+@media (max-width: 1199.99px) {
+  .blockquote-first {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1199.99px) {
+  .blockquote-first {
+    text-align: center;
+  }
 }
 
 .img-metal-wrap {
   display: flex;
   flex-wrap: wrap;
 }
-
+@media (max-width: 1199.99px) {
+  .img-metal-wrap {
+    justify-content: center;
+  }
+}
 .a-metal-img {
   display: block;
   transition: 0.4s;
@@ -196,10 +300,21 @@ blockquote h2 {
   font-size: 4rem;
   margin: 150px 0 100px 0;
 }
+@media (max-width: 575.99px) {
+  .thanksWatching {
+    margin: 0px 0 100px 0;
+  }
+}
 
 .cond {
   transform: rotate(-20deg);
   margin-left: 50px;
+}
+@media (max-width: 575.99px) {
+  .cond {
+    margin-left: 0;
+    width: 95%;
+  }
 }
 
 .img-stravinsky {
@@ -207,11 +322,83 @@ blockquote h2 {
   right: -179px;
   bottom: -137px;
 }
+@media (max-width: 1199.99px) {
+  .img-stravinsky {
+    z-index: 2;
+    bottom: -150px;
+    right: -80px;
+    width: 40%;
+  }
+}
+@media (max-width: 575.99px) {
+  .img-stravinsky {
+    right: -60px;
+    bottom: -180px;
+    width: 60%;
+  }
+}
 
+@media (max-width: 1199.99px) {
+  h2 {
+    padding: 10px;
+  }
+}
+@media (max-width: 575.99px) {
+  h2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1199.99px) {
+  p {
+    padding: 10px;
+  }
+}
+@media (max-width: 1199.99px) {
+  h3 {
+    padding-left: 10px;
+  }
+}
 .bestway-img {
   position: absolute;
   right: 207px;
   bottom: -400px;
+}
+@media (max-width: 1199.99px) {
+  .bestway-img {
+    bottom: -330px;
+  }
+}
+@media (max-width: 991.99px) {
+  .bestway-img {
+    margin: 0 auto;
+    transform: rotate(-30deg);
+    z-index: 3;
+    right: 100px;
+    width: 60%;
+    bottom: -270px;
+  }
+}
+@media (max-width: 575.99px) {
+  .bestway-img {
+    bottom: -170px;
+  }
+}
+
+@media (max-width: 1199.99px) {
+  .sl2 {
+    margin-top: 250px;
+  }
+}
+@media (max-width: 991.99px) {
+  .sl2 {
+    margin-top: 180px;
+  }
+}
+@media (max-width: 575.99px) {
+  .sl2 {
+    margin-top: 110px;
+  }
 }
 
 .welcome-site {
