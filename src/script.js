@@ -10,12 +10,32 @@ import {gsap} from "gsap";
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
+
 // Scene
 const scene = new THREE.Scene()
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight
+}
 
 
+
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000)
+
+
+window.addEventListener('resize', () => {
+    //Update sizes
+    sizes.width = window.innerWidth
+    sizes.heigh = window.innerHeight
+
+    //Update camera
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    //Update renderer
+    renderer.setSize(window.innerWidth, window.innerHeight)
+})
 
 const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('.webgl')
@@ -54,19 +74,15 @@ scene.add(triangleMesh)
 const radius2 =  1;
 const geometry2 = new THREE.DodecahedronGeometry(radius2);
 const material2 =  new THREE.MeshNormalMaterial({
-    transparent: true,
-    opacity: 0.65
+    // transparent: true,
+    // opacity: 0.65
+    wireframe: false
 })
 const dodecahedronMesh = new THREE.Mesh(geometry2,material2)
-// const dodecahedronMesh2 = new THREE.Mesh(geometry2,material2)
 dodecahedronMesh.position.z = 27
 dodecahedronMesh.position.x = -6
-
-// dodecahedronMesh2.position.z = 21
-// dodecahedronMesh2.position.x = -9
 scene.add(dodecahedronMesh)
-// gui.add(dodecahedronMesh2.position,'z').min(15).max(30).step(1).name('dodecahedronMesh2 - z position')
-// gui.add(dodecahedronMesh2.position,'x').min(-15).max(15).step(1).name('dodecahedronMesh2 - x position')
+
 
 
 //Donut
@@ -95,12 +111,9 @@ gltfLoader.load(
         gltf.scene.rotation.z = 0.26
         gltf.scene.position.z = -5;
         gltf.scene.position.x = 2;
-        // gui.add(gltf.scene.rotation,'z').min(-10).max(5).step(0.01).name('donut - z rotation')
-        // gui.add(gltf.scene.rotation,'x').min(-10).max(5).step(0.01).name('donut - x rotation')
-        // gui.add(gltf.scene.rotation,'y').min(-5).max(10).step(0.01).name('donut - y rotation')
-
 
         scene.add(gltf.scene)
+
     },
     () => {
         console.log('progress')
@@ -163,9 +176,6 @@ scene.add(me)
 me.position.z = -5;
 me.position.x = 2;
 
-// gui.add(camera.position,'z').min(-100).max(100).step(1).name('z position')
-//Dont forget about loading screen!!!
-
 console.log(camera.position.z)
 
 function moveCamera() {
@@ -208,15 +218,10 @@ function animate() {
 }
 animate()
 
+
+
 const pointLight = new THREE. PointLight(0xffffff)
 pointLight.position.set(20,20,20)
 
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(pointLight, ambientLight)
-
-
-
-//
-// // const spaceTexture = new THREE.TextureLoader().load('space.jpg')
-// // scene.background = spaceTexture
-//

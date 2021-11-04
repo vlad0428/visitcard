@@ -1,238 +1,485 @@
 @import url("https://use.typekit.net/jmk3xov.css")
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap')
+@import './adative'
+
+//991.99px + since
+body
+  overflow-x: hidden
+
 canvas
-    position: fixed
-    top: 0
-    left: 0
+  position: fixed
+  top: 0
+  left: 0
+
 
 p
-    font-family: 'Lato', sans-serif
+  font-family: 'Lato', sans-serif
+
 
 $dark-bg: rgba(15, 15, 15, 0.95)
 $spacing: 350px
 
 main
-    color: white
-    z-index: 99
-    position: absolute
-    margin: 0 auto
-    padding: 120px 0 0
-    overflow: hidden
+  color: white
+  z-index: 99
+  position: absolute
+  margin: 0 auto
+  padding: 120px 0 0
+  overflow: hidden
+  @media (max-width: 1199.99px)
+    padding: 40px
+    width: 100%
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
 
 h1, h2, h3, blockquote
-    font-family: elevon, sans-serif
-    font-weight: 700
-    font-style: normal
+  font-family: elevon, sans-serif
+  font-weight: 700
+  font-style: normal
+
 
 header
-    background: $dark-bg
-    font-size: 2.5rem
-    padding: 2rem
-    margin-bottom: 50px
-    width: 800px
-    position: relative
+  background: $dark-bg
+  font-size: 2.5rem
+  padding: 2rem
+  margin-bottom: 50px
+  width: 800px
+  position: relative
+
+  @media (max-width: 1199.99px)
+    font-size: 1.5rem
+    width: 600px
+    margin-left: 5.4%
+
+  @media (max-width: 991.99px)
+    width: 90%
+    margin: 0 auto
+    padding: 0
+    text-align: center
+    padding-top: 10px
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
 
 section
-    width: 100%
-    padding: 1rem
-    background: $dark-bg
-    font-size: 1.25rem
-    line-height: 1.5
-    margin-bottom: $spacing
+  width: 100%
+  padding: 1rem
+  background: $dark-bg
+  font-size: 1.25rem
+  line-height: 1.5
+  margin-bottom: $spacing
+  @media (max-width: 1199.99px)
+    width: 90%
+    margin: 0 auto
+    padding: 0
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
 
 blockquote h2
-    color: black
-    background: white
-    font-size: 4rem
-    margin: 150px 0 100px 0
-    width: 1400px
+  color: black
+  background: white
+  font-size: 4rem
+  margin: 150px 0 100px 0
+  width: 1400px
+
+  @media (max-width: 1199.99px)
+    margin: 120px auto 70px
+    font-size: 1.5rem
+    text-align: center
+    width: 90%
+    padding: 5px 0
+
+  @media (max-width: 991.99px)
+    margin: 70px auto 120px
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
+  @media (max-width: 1199.99px)
+
 
 
 .section-right
-    width: 500px
-    margin-left: auto
-    margin-right: 10px
-    position: relative
+  width: 500px
+  margin-left: auto
+  margin-right: 10px
+  position: relative
+  @media (max-width: 1199.99px)
+    width: 90%
+    margin: 0 auto
+  @media (max-width: 991.99px)
+    width: 90%
+    margin: 0 auto
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
 
 .section-left
-    width: 1200px
-    position: relative
+  width: 1200px
+  position: relative
+  @media (max-width: 1199.99px)
+    width: 90%
+    margin: 50px auto
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
+
+.section-left h2
+  @media (max-width: 1199.99px)
+    text-align: center
+    padding: 25px 35px 0
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
+
+.zIndexMetall
+  @media (max-width: 1199.99px)
+    z-index: 10
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
 
 ///////////////////////////////////////
-.section
-    position: relative
-    width: 100%
-    height: 700px
-    margin-top: -250px
-    //overflow: hidden
+.sectionText
+  position: relative
+  width: 100%
+  height: 700px
+  margin-top: -250px
+  @media (max-width: 1199.99px)
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    margin-top: -200px
+//overflow: hidden
 
 .text
-    position: relative
-    transform: skewY(345deg)
-    animation: animateColor 5s linear infinite
+  position: relative
+  transform: skewY(345deg)
+  animation: animateColor 5s linear infinite
 
 @keyframes animateColor
-    0%
-        filter: hue-rotate(0deg)
-    100%
-        filter: hue-rotate(360deg)
+  0%
+    filter: hue-rotate(0deg)
+  100%
+    filter: hue-rotate(360deg)
 
 .text h2
-    text-align: justify
-    position: relative
-    width: 100%
-    font-size: 8em
-    color: #fff
-    pointer-events: none
-    line-height: 1em
-    //white-space: nowrap
-    text-shadow: calc(var(--x)) 100px 0 rgba(255,255,255,0.1)
-    transform: translateX(calc(0% - var(--x) * 2))
+  text-align: justify
+  position: relative
+  width: 100%
+  font-size: 8em
+  color: #fff
+  pointer-events: none
+  line-height: 1em
+  //white-space: nowrap
+  text-shadow: calc(var(--x)) 100px 0 rgba(255, 255, 255, 0.1)
+  transform: translateX(calc(0% - var(--x) * 2))
+  @media (max-width: 1199.99px)
+
+  @media (max-width: 991.99px)
+    font-size: 5em
+
+  @media (max-width: 767.99px)
+    font-size: 4em
+
+  @media (max-width: 575.99px)
+    font-size: 2.5em
 
 //
 .text h2 span
-    color: #0f0
-    margin: 0 10px
+  color: #0f0
+  margin: 0 10px
 
 //
 .text h2 span:nth-child(even)
-    color: transparent
-    -webkit-text-stroke: 2px #fff
+  color: transparent
+  -webkit-text-stroke: 2px #fff
 /////////////////////////////////
 .section2
-    position: fixed
-    bottom: 0
-    right: 0
-    z-index: 10000
+  position: fixed
+  bottom: 0
+  right: 0
+  z-index: 10000
 
 .ul-icons
-    position: relative
-    display: flex
-    z-index: 2
+  position: relative
+  display: flex
+  z-index: 2
 
 .ul-icons li
-    position: relative
-    list-style: none
-    margin: 10px
+  position: relative
+  list-style: none
+  margin: 10px
 
 .ul-icons li a
-    position: relative
-    width: 80px
-    height: 80px
-    display: flex
-    border-radius:  10px
-    justify-content: center
-    align-items: center
-    text-decoration: none
-    color: #ffffff
-    font-size: 2em
-    border: 1px solid rgba(255, 255,255,0.4)
-    border-right: 1px solid rgba(255, 255,255,0.2)
-    border-bottom: 1px solid rgba(255, 255,255,0.2)
-    box-shadow: 0 5px 45px rgba(0,0,0,0.1)
-    backdrop-filter: blur(2px)
-    transition: 0.5s
-    overflow: hidden
+  position: relative
+  width: 80px
+  height: 80px
+  display: flex
+  border-radius: 10px
+  justify-content: center
+  align-items: center
+  text-decoration: none
+  color: #ffffff
+  font-size: 2em
+  border: 1px solid rgba(255, 255, 255, 0.4)
+  border-right: 1px solid rgba(255, 255, 255, 0.2)
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1)
+  backdrop-filter: blur(2px)
+  transition: 0.5s
+  overflow: hidden
 
 .ul-icons li a:hover
-    transform: translateY(-20px)
+  transform: translateY(-20px)
 
 .ul-icons li a::before
-    content: ''
-    position: absolute
-    top: 0
-    width: 50px
-    height: 100%
-    background: rgba(255,255,255,0.5)
-    transform: skewX(45deg) translateX(150px)
-    transition: 0.5s
+  content: ''
+  position: absolute
+  top: 0
+  width: 50px
+  height: 100%
+  background: rgba(255, 255, 255, 0.5)
+  transform: skewX(45deg) translateX(150px)
+  transition: 0.5s
 
 .ul-icons li a:hover::before
-    transform: skewX(45deg) translateX(-150px)
+  transform: skewX(45deg) translateX(-150px)
 
 .imgMetal
-    width: 400px
+  width: 400px
+  @media (max-width: 1199.99px)
+    width: 250px
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
 
 .blockquote-first
-    margin-bottom: 220px
+  margin-bottom: 220px
+  @media (max-width: 1199.99px)
+    margin: 0 auto
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
+  @media (max-width: 1199.99px)
+    text-align: center
 
 .img-metal-wrap
-    display: flex
-    flex-wrap: wrap
+  display: flex
+  flex-wrap: wrap
+  @media (max-width: 1199.99px)
+    justify-content: center
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
 
 .a-metal-img
-    display: block
+  display: block
+  transition: 0.4s
+  z-index: 100
+
+  &:hover
     transition: 0.4s
-    z-index: 100
-    &:hover
-        transition: 0.4s
-        margin-top: -20px
+    margin-top: -20px
 
 .thanksWatching
-    color: black
-    font-size: 4rem
-    margin: 150px 0 100px 0
+  color: black
+  font-size: 4rem
+  margin: 150px 0 100px 0
+  @media (max-width: 1199.99px)
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    margin: 0px 0 100px 0
+
 
 .cond
-    transform: rotate(-20deg)
-    margin-left: 50px
+  transform: rotate(-20deg)
+  margin-left: 50px
+  @media (max-width: 1199.99px)
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    margin-left: 0
+    width: 95%
 
 .img-stravinsky
-    position: absolute
-    right: -179px
-    bottom: -137px
+  position: absolute
+  right: -179px
+  bottom: -137px
+  @media (max-width: 1199.99px)
+    z-index: 2
+    bottom: -150px
+    right: -80px
+    width: 40%
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    right: -60px
+    bottom: -180px
+    width: 60%
+
+
+h2
+  @media (max-width: 1199.99px)
+    padding: 10px
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    text-align: center
+
+p
+  @media (max-width: 1199.99px)
+    padding: 10px
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
+
+h3
+
+  @media (max-width: 1199.99px)
+    padding-left: 10px
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
 
 .bestway-img
-    position: absolute
-    right: 207px
-    bottom: -400px
+  position: absolute
+  right: 207px
+  bottom: -400px
+  @media (max-width: 1199.99px)
+    bottom: -330px
+
+  @media (max-width: 991.99px)
+    margin: 0 auto
+    transform: rotate(-30deg)
+    z-index: 3
+    right: 100px
+    width: 60%
+    bottom: -270px
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    bottom: -170px
+
+
+.sl2
+  @media (max-width: 1199.99px)
+    margin-top: 250px
+
+  @media (max-width: 991.99px)
+    margin-top: 180px
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    margin-top: 110px
+
 
 .welcome-site
-    font-family: sans-serif
-    font-size: 12px
-    color: #ba0000
-    position: absolute
-    bottom: 5px
-    right: 7px
+  font-family: sans-serif
+  font-size: 12px
+  color: #ba0000
+  position: absolute
+  bottom: 5px
+  right: 7px
 //don't forgot to write not adaptive yet on load screen
 
 .project-1
-    background: lightpink
-    color: black
-    text-align: center
-    text-decoration: none
-    display: block
-    margin-top: 10px
+  background: lightpink
+  color: black
+  text-align: center
+  text-decoration: none
+  display: block
+  margin-top: 10px
 
-    &:hover
-        color: black
-        text-decoration: none
+  &:hover
+    color: black
+    text-decoration: none
 
 .project-2
-    background: #c48d98
+  background: #c48d98
+  color: black
+  margin-top: 10px
+  text-align: center
+  text-decoration: none
+  display: block
+
+  &:hover
     color: black
-    margin-top: 10px
-    text-align: center
     text-decoration: none
-    display: block
-    &:hover
-        color: black
-        text-decoration: none
 
 .loading-bar
-    position: absolute
-    top: 50%
-    width: 100%
-    height: 2px
-    background: #ffffff
-    transform: scaleX(0.3)
-    transform-origin: top left
-    transition: transform 0.5s
-    z-index: 100001
+  position: absolute
+  top: 50%
+  width: 100%
+  height: 2px
+  background: #ffffff
+  transform: scaleX(0.3)
+  transform-origin: top left
+  transition: transform 0.5s
+  z-index: 100001
+  overflow: hidden
 
 
 .loading-bar.ended
-    transform: scaleX(0)
-    transform-origin: 100% 0
-    transition: transform 1.5s ease-in-out
-    z-index: 100000
+  transform: scaleX(0)
+  transform-origin: 100% 0
+  transition: transform 1.5s ease-in-out
+  z-index: 100000
+  overflow: hidden
+
+
