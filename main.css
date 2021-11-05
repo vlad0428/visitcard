@@ -3,6 +3,11 @@
 body {
   overflow-x: hidden;
 }
+@media (max-width: 575.99px) {
+  body {
+    margin: 10px 0;
+  }
+}
 
 canvas {
   position: fixed;
@@ -28,10 +33,24 @@ main {
     width: 100%;
   }
 }
+@media (max-width: 575.99px) {
+  main {
+    padding: 0;
+  }
+}
+
 h1, h2, h3, blockquote {
   font-family: elevon, sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+@media (max-width: 575.99px) {
+  h1 {
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 45px;
+  }
 }
 
 header {
@@ -55,7 +74,6 @@ header {
     margin: 0 auto;
     padding: 0;
     text-align: center;
-    padding-top: 10px;
   }
 }
 section {
@@ -142,6 +160,7 @@ blockquote h2 {
 @media (max-width: 575.99px) {
   .sectionText {
     margin-top: -200px;
+    height: auto;
   }
 }
 
@@ -233,6 +252,12 @@ blockquote h2 {
   backdrop-filter: blur(2px);
   transition: 0.5s;
   overflow: hidden;
+}
+@media (max-width: 575.99px) {
+  .ul-icons li a {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .ul-icons li a:hover {
@@ -330,11 +355,16 @@ blockquote h2 {
     width: 40%;
   }
 }
+@media (max-width: 767.99px) {
+  .img-stravinsky {
+    right: -50px;
+  }
+}
 @media (max-width: 575.99px) {
   .img-stravinsky {
-    right: -60px;
-    bottom: -180px;
-    width: 60%;
+    right: 0px;
+    bottom: -110px;
+    width: 240px;
   }
 }
 
@@ -346,6 +376,12 @@ blockquote h2 {
 @media (max-width: 575.99px) {
   h2 {
     text-align: center;
+  }
+}
+
+@media (max-width: 575.99px) {
+  .doEverything {
+    padding: 0;
   }
 }
 
@@ -381,7 +417,8 @@ blockquote h2 {
 }
 @media (max-width: 575.99px) {
   .bestway-img {
-    bottom: -170px;
+    bottom: -190px;
+    width: 220px;
   }
 }
 
