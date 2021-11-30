@@ -39,6 +39,27 @@ main {
   }
 }
 
+.sphere {
+  position: absolute;
+  bottom: -240px;
+  right: -144px;
+}
+@media (max-width: 1199.99px) {
+  .sphere {
+    display: none;
+  }
+}
+.dreamsDontWork {
+  position: absolute;
+  bottom: -373px;
+  right: -308px;
+  width: 35%;
+}
+@media (max-width: 1199.99px) {
+  .dreamsDontWork {
+    display: none;
+  }
+}
 h1, h2, h3, blockquote {
   font-family: elevon, sans-serif;
   font-weight: 700;
