@@ -1,11 +1,77 @@
 @import url("https://use.typekit.net/jmk3xov.css")
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap')
 @import './adative'
-
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap')
 //991.99px + since
 body
-  overflow-x: hidden
+  overflow: overlay
+  margin: 0
+  @media (max-width: 1199.99px)
 
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    margin: 10px 0
+
+
+.hideMain
+  overflow-y: hidden
+
+*
+  scrollbar-width: auto
+
+
+  /* Chrome, Edge, and Safari */
+*::-webkit-scrollbar
+  width: 14px
+
+*::-webkit-scrollbar-track
+  background-color: transparent
+
+
+*::-webkit-scrollbar-thumb
+  background-color: rgba(202, 38, 255, 0.36)
+  border-radius: 10px
+  border: 1px solid #ffffff
+
+.wrapper
+  width: 100vw
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  background: rgba(10,10,10,1)
+  overflow: hidden
+  z-index: 19
+  transition: opacity 0.5s ease
+  p
+    color: #00BE14
+    font-weight: 600
+    font-size: 60px
+    opacity: 1
+    letter-spacing: 7px
+    text-shadow: 0 0 15px #00BE14
+    animation: blinking 2s infinite 0s alternate
+    box-sizing: border-box
+    font-family: "VT323", monospace
+    z-index: 20
+
+@keyframes blinking
+  from
+    text-shadow: 0 0 10px #00BE14
+    opacity: 0
+
+  to
+    text-shadow: 0 0 20px #00BE14
+    opacity: 1
+
+
+.ended
+  display: none
+  opacity: 0
+  overflow: hidden
 canvas
   position: fixed
   top: 0
@@ -34,13 +100,51 @@ main
   @media (max-width: 767.99px)
 
   @media (max-width: 575.99px)
+    padding: 0
 
+.sphere
+  position: absolute
+  bottom: -240px
+  right: -144px
+  @media (max-width: 1199.99px)
+    display: none
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+
+.dreamsDontWork
+  position: absolute
+  bottom: -373px
+  right: -308px
+  width: 35%
+  @media (max-width: 1199.99px)
+    display: none
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
 
 h1, h2, h3, blockquote
   font-family: elevon, sans-serif
   font-weight: 700
   font-style: normal
 
+h1
+  @media (max-width: 1199.99px)
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    padding: 5px
+    margin-top: 5px
+    font-size: 45px
 
 header
   background: $dark-bg
@@ -60,7 +164,6 @@ header
     margin: 0 auto
     padding: 0
     text-align: center
-    padding-top: 10px
 
   @media (max-width: 767.99px)
 
@@ -105,7 +208,6 @@ blockquote h2
   @media (max-width: 575.99px)
 
   @media (max-width: 1199.99px)
-
 
 
 .section-right
@@ -172,6 +274,7 @@ blockquote h2
 
   @media (max-width: 575.99px)
     margin-top: -200px
+    height: auto
 //overflow: hidden
 
 .text
@@ -251,6 +354,15 @@ blockquote h2
   backdrop-filter: blur(2px)
   transition: 0.5s
   overflow: hidden
+  @media (max-width: 1199.99px)
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    width: 50px
+    height: 50px
 
 .ul-icons li a:hover
   transform: translateY(-20px)
@@ -355,11 +467,12 @@ blockquote h2
   @media (max-width: 991.99px)
 
   @media (max-width: 767.99px)
+    right: -50px
 
   @media (max-width: 575.99px)
-    right: -60px
-    bottom: -180px
-    width: 60%
+    right: -0px
+    bottom: -110px
+    width: 240px
 
 
 h2
@@ -372,6 +485,16 @@ h2
 
   @media (max-width: 575.99px)
     text-align: center
+
+.doEverything
+  @media (max-width: 1199.99px)
+
+  @media (max-width: 991.99px)
+
+  @media (max-width: 767.99px)
+
+  @media (max-width: 575.99px)
+    padding: 0
 
 p
   @media (max-width: 1199.99px)
@@ -413,7 +536,8 @@ h3
   @media (max-width: 767.99px)
 
   @media (max-width: 575.99px)
-    bottom: -170px
+    bottom: -190px
+    width: 220px
 
 
 .sl2
@@ -462,24 +586,6 @@ h3
     color: black
     text-decoration: none
 
-.loading-bar
-  position: absolute
-  top: 50%
-  width: 100%
-  height: 2px
-  background: #ffffff
-  transform: scaleX(0.3)
-  transform-origin: top left
-  transition: transform 0.5s
-  z-index: 100001
-  overflow: hidden
 
-
-.loading-bar.ended
-  transform: scaleX(0)
-  transform-origin: 100% 0
-  transition: transform 1.5s ease-in-out
-  z-index: 100000
-  overflow: hidden
 
 
