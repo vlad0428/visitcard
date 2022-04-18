@@ -8,12 +8,7 @@ import {gsap} from "gsap";
 
 
 window.addEventListener('load',() => {
-    const preloader = document.querySelector('.wrapper')
-    const main = document.querySelector('main')
-    main.classList.remove('hideMain')
-    preloader.classList.add('ended')
-    const body = document.querySelector('body')
-    body.removeAttribute('style')
+
 })
 
 
@@ -113,8 +108,17 @@ gltfLoader.load(
         gltf.scene.position.x = 2;
 
         scene.add(gltf.scene)
+        const main = document.querySelector('main')
+        main.classList.remove('hideMain')
+        const preloader = document.querySelector('.wrapper')
+        preloader.classList.add('ended')
+        const body = document.querySelector('body')
+        body.removeAttribute('style')
+
+
     },
     () => {
+
     },
     () => {
     }

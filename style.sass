@@ -6,6 +6,7 @@
 body
   overflow: overlay
   margin: 0
+  background: black
   @media (max-width: 1199.99px)
 
   @media (max-width: 991.99px)
@@ -18,6 +19,8 @@ body
 
 .hideMain
   overflow-y: hidden
+  background: black
+  display: none
 
 *
   scrollbar-width: auto
@@ -32,13 +35,13 @@ body
 
 
 *::-webkit-scrollbar-thumb
-  background-color: rgba(202, 38, 255, 0.36)
+  background-color: rgb(38 255 254 / 36%)
   border-radius: 10px
-  border: 1px solid #ffffff
 
 .wrapper
   width: 100vw
   height: 100vh
+  position: absolute
   display: flex
   justify-content: center
   align-items: center
