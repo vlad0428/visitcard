@@ -428,6 +428,7 @@ blockquote h2 {
 }
 
 .cond {
+  width: 400px;
   transform: rotate(-20deg);
   margin-left: 50px;
 }
@@ -576,6 +577,14 @@ blockquote h2 {
   width: 25px;
   height: 25px;
   right: 25px;
+  top: 2.5px;
+}
+
+.second-svg-icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 55px;
   top: 2.5px;
 }
 
