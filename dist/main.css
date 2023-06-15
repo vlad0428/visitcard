@@ -19,6 +19,7 @@ body {
 }
 
 * {
+  user-select: none;
   scrollbar-width: auto;
   /* Chrome, Edge, and Safari */
 }
@@ -89,7 +90,6 @@ p {
 
 main {
   color: white;
-  z-index: 99;
   position: absolute;
   margin: 0 auto;
   padding: 120px 0 0;
@@ -399,10 +399,17 @@ blockquote h2 {
     justify-content: center;
   }
 }
+.zIndex {
+  z-index: 100;
+}
+
+.typescript {
+  display: block;
+}
+
 .a-metal-img {
   display: block;
   transition: 0.4s;
-  z-index: 100;
 }
 .a-metal-img:hover {
   transition: 0.4s;
@@ -421,6 +428,7 @@ blockquote h2 {
 }
 
 .cond {
+  width: 400px;
   transform: rotate(-20deg);
   margin-left: 50px;
 }
@@ -543,6 +551,7 @@ blockquote h2 {
   text-decoration: none;
   display: block;
   margin-top: 10px;
+  position: relative;
 }
 .project-1:hover {
   color: black;
@@ -556,10 +565,72 @@ blockquote h2 {
   text-align: center;
   text-decoration: none;
   display: block;
+  position: relative;
 }
 .project-2:hover {
   color: black;
   text-decoration: none;
+}
+
+.svg-icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 25px;
+  top: 2.5px;
+}
+
+.second-svg-icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 55px;
+  top: 2.5px;
+}
+
+.star-svg {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: -29px;
+  top: 3px;
+}
+
+.fireElements {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.fire {
+  position: absolute;
+  top: -200px;
+  right: -308px;
+}
+@media (max-width: 670.99px) {
+  .fire {
+    display: none;
+  }
+}
+
+.pf-1 {
+  mix-blend-mode: normal;
+  z-index: 1;
+}
+
+.pf-2 {
+  mix-blend-mode: screen;
+  z-index: 4;
+}
+
+.pf-3 {
+  mix-blend-mode: hard-light;
+  z-index: 2;
+}
+
+.pf-4 {
+  mix-blend-mode: hard-light;
+  z-index: 3;
 }
 
 /*# sourceMappingURL=style.css.map */

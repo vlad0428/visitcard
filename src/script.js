@@ -196,8 +196,17 @@ function moveCamera() {
     }
 
 }
+let progress = document.getElementById('progressbar');
+let webgl = document.body;
+let hideMain = document.querySelector('.hideMain');
+let totalHeight = window.innerHeight - webgl.scrollHeight
+document.body.onscroll = () => {
+    moveCamera()
+    let progressHeight = ( window.pageYOffset / hideMain.offsetHeight ) * 125;
+    progress.style.height = progressHeight + "%";
+    console.log(progressHeight)
+};
 
-document.body.onscroll = moveCamera;
 moveCamera();
 
 let t = 0
@@ -227,5 +236,9 @@ pointLight.position.set(20, 20, 20)
 
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(pointLight, ambientLight)
+
+
+//////////////////////////////////////////////////////////////////////
+
 
 
