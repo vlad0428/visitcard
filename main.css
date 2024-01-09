@@ -25,16 +25,7 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 14px;
-}
-
-*::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: rgba(38, 255, 254, 0.36);
-  border-radius: 10px;
+  width: 0px;
 }
 
 .wrapper {
@@ -107,13 +98,16 @@ main {
   }
 }
 
-.sphere {
+.star {
+  filter: invert(89%) sepia(62%) saturate(3056%) hue-rotate(355deg) brightness(107%) contrast(103%);
+  opacity: 0.6;
   position: absolute;
-  bottom: -240px;
-  right: -144px;
+  width: 300px;
+  top: -70px;
+  right: -50px;
 }
 @media (max-width: 1199.99px) {
-  .sphere {
+  .star {
     display: none;
   }
 }
@@ -146,6 +140,7 @@ header {
   background: rgba(15, 15, 15, 0.95);
   font-size: 2.5rem;
   padding: 2rem;
+  margin-left: 1em;
   margin-bottom: 50px;
   width: 800px;
   position: relative;
@@ -220,6 +215,7 @@ blockquote h2 {
   }
 }
 .section-left {
+  margin-left: 1em;
   width: 1200px;
   position: relative;
 }
@@ -405,8 +401,28 @@ blockquote h2 {
 
 .typescript {
   display: block;
+  position: relative;
 }
-
+@media (max-width: 1350px) {
+  .typescript {
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .iCreate {
+    padding: 64px 35px 0 !important;
+  }
+}
+.notImg {
+  position: absolute;
+  top: -45px;
+  right: -20px;
+}
+@media (max-width: 1350px) {
+  .notImg {
+    display: none;
+  }
+}
 .a-metal-img {
   display: block;
   transition: 0.4s;
@@ -558,6 +574,19 @@ blockquote h2 {
   text-decoration: none;
 }
 
+.warning {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: red;
+  font-family: sans-serif;
+}
+
+.under-link img {
+  margin-right: 10px;
+  width: 500px;
+}
+
 .project-2 {
   background: #c48d98;
   color: black;
@@ -631,6 +660,52 @@ blockquote h2 {
 .pf-4 {
   mix-blend-mode: hard-light;
   z-index: 3;
+}
+
+#scrollPath {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#progressbar {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10px;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  animation: animate 5s linear infinite;
+}
+#progressbar:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  filter: blur(10px);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  filter: blur(30px);
+}
+
+@keyframes animate {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
