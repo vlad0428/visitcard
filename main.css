@@ -35,7 +35,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0a0a0a;
+  background: rgb(10, 10, 10);
   overflow: hidden;
   z-index: 19;
   transition: opacity 0.5s ease;
@@ -705,6 +705,18 @@ blockquote h2 {
   }
   50% {
     filter: hue-rotate(360deg);
+  }
+}
+@media (max-width: 480px) {
+  .project-1 {
+    text-align: left;
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .under-link img {
+    width: 100%;
   }
 }
 
